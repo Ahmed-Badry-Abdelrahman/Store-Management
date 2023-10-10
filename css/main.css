@@ -1,8 +1,420 @@
 * {
     margin: 0;
     padding: 0;
+    direction: rtl;
+    box-sizing: border-box;
+}
+
+:root {
+    --color1: #00A6FB;
+    --color2: #0582CA;
+    --color3: #006494;
+    --color4: #003554;
+    --color5: #051923;
+    --color6: #df310e;
+    --transition: .4s;
 }
 
 body {
+    font-family: 'Cairo', sans-serif;
     font-family: 'Scheherazade New', serif;
+    color: #fff;
 }
+
+
+.container {
+    background-color: var(--color4);
+}
+header {
+    height: 70px;
+    background-color: var(--color2);
+    width: 100%;
+    padding: 15px;
+    position: fixed;
+    top: 0;
+    z-index: 999;
+}
+header .content .row {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+header .content .row .menu-icon {
+    display: none;
+    cursor: pointer;
+    padding: 5px;
+}
+header .content .row .menu-icon i{
+    font-size: 25px;
+    transition: var(--transition);
+    -webkit-transition: var(--transition);
+    -moz-transition: var(--transition);
+    -ms-transition: var(--transition);
+    -o-transition: var(--transition);
+}
+header .content .row .menu-icon:hover i {
+    color: var(--color5);
+    transform: scale(1.1);
+    -webkit-transform: scale(1.1);
+    -moz-transform: scale(1.1);
+    -ms-transform: scale(1.1);
+    -o-transform: scale(1.1);
+}
+@media (max-width: 540px) {
+    header .content .row .menu-icon {
+        display: inline-flex;
+    }
+}
+header .content .row .component {
+    width: 80%;
+    position: relative;
+    margin: auto;
+    height: 40px;
+}
+
+header .content .row .component input {
+    padding: 5px 20px 5px 5px;
+    height: inherit;
+    width: 100%;
+    outline: none;
+    border: none;
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+}
+
+header .content .row .component div {
+    width: 100px;
+    background-color: #003554;
+    position: absolute;
+    top: 0;
+    height: inherit;
+    left: 0;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+header .content .row .component div:hover i {
+    color: var(--color1);
+    transform: scale(1.1);
+    -webkit-transform: scale(1.1);
+    -moz-transform: scale(1.1);
+    -ms-transform: scale(1.1);
+    -o-transform: scale(1.1);
+}
+
+/* ================ section ================== */
+
+section {
+    position: relative;
+    top: 70px;
+}
+section .content .row {
+    display: flex;
+    flex-direction: row;
+    min-height: calc(100vh - 70px);
+}
+section .content .row .right-column {
+    position: relative;
+    background-color: var(--color4);
+    width: 20%;
+}
+section .content .row .right-column .content {
+    position: fixed;
+    top: 70px;
+    right: 0;
+    width: inherit;
+}
+@media (max-width: 540px) {
+    section .content .row .right-column  {
+        position: absolute;
+        top: 0;
+        right: 4%;
+        width: 90%;
+        background-color: #eee;
+        color: var(--color5);
+        z-index: 9999;
+        border-radius: 3px;
+        -webkit-border-radius: 3px;
+        -moz-border-radius: 3px;
+        -ms-border-radius: 3px;
+        -o-border-radius: 3px;
+        display: none;
+}
+    section .content .row .right-column::after {
+        content: '';
+        position: absolute;
+        top: -27px;
+        right: 0;
+        border-width: 15px;
+        border-color: transparent transparent #eee transparent;
+        border-style: solid;
+    }
+    section .content .row .right-column .content  {
+        position: static;
+        width: 100%;
+    }
+    section .content .row .right-column.active {
+        display: block;
+    }
+}
+section .content .row .right-column .content div {
+    height: 60px;
+    cursor: pointer;
+}
+section .content .row .right-column div.active {
+    background-color: var(--color3);
+}
+section .content .row .right-column div p {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    padding: 0 20px;
+    font-size: 20px;
+    font-weight: bold;
+    transition: var(--transition);
+    -webkit-transition: var(--transition);
+    -moz-transition: var(--transition);
+    -ms-transition: var(--transition);
+    -o-transition: var(--transition);
+}
+section .content .row .right-column div p:hover {
+    background-color: var(--color2);
+}
+section .content .row .left-column {
+    width: 80%;
+    background-color: var(--color5);
+}
+@media (max-width: 540px) {
+    section .content .row .left-column {
+        width: 100%;
+        background-color: var(--color5);
+    }
+}
+section .content .row .left-column .content.sec-1 {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding: 10px;
+}
+
+section .content .row .left-column .content.sec-1 div {
+    padding: 10px;
+    flex-basis: calc((100% - 15px) / 3);
+    background-color: var(--color4);
+    margin: 0 5px 5px 0;
+    height: 70px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    border-radius: 7px;
+    -webkit-border-radius: 7px;
+    -moz-border-radius: 7px;
+    -ms-border-radius: 7px;
+    -o-border-radius: 7px;
+}
+@media (max-width: 540px) {
+    section .content .row .left-column .content.sec-1 div {
+        flex-basis: 100%;
+    }
+}
+section .content .row .left-column .content.sec-1 div:hover {
+    background-color: var(--color3);
+}
+
+
+/* ================= sec-2 =================*/
+/* ================= sec-2 =================*/
+/* ================= sec-2 =================*/
+
+.content.sec-2,
+.content.sec-3,
+.content.sec-4,
+.content.sec-5,
+.content.sec-6  {
+    padding: 20px;
+}
+.content.sec-2 .inputs input,
+.content.sec-4 .customer-info input ,
+.content.sec-6 .sale input{
+    width: 100%;
+    height: 50px;
+    padding: 5px 10px;
+    margin-bottom: 5px;
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+    outline: none;
+    border: none;
+}
+.content.sec-2 .inputs input:focus,
+.content.sec-4 .customer-info input:focus,
+.content.sec-6 .sale input:focus {
+    transform: scale(1.01);
+    -webkit-transform: scale(1.01);
+    -moz-transform: scale(1.01);
+    -ms-transform: scale(1.01);
+    -o-transform: scale(1.01);
+    background-color: #a1e1ff;
+}
+
+.content.sec-2 .inputs .info-product input {
+    width: calc((100% - 10px) / 3);
+}
+#total-hw,
+#product-total-price,
+#remaining-amount,
+#number-pieces-available,
+#product-price-sale,
+#pBS,
+#total-hw-count {
+    pointer-events: none;
+    background-color: var(--color6);
+}
+#total-hw::placeholder,
+#product-total-price::placeholder,
+#remaining-amount::placeholder,
+#number-pieces-available::placeholder,
+#product-price-sale::placeholder,
+#pBS::placeholder,
+#total-hw-count::placeholder {
+    color: #fff;
+}
+
+.content.sec-2 .inputs .price input{
+    width: calc((100% - 5px) / 2);
+}
+
+#total-price {
+    pointer-events: none;
+    background-color: var(--color6);
+}
+#total-price::placeholder {
+    color: #fff;
+}
+.content.sec-2 .inputs button,
+.content.sec-4 button,
+.content.sec-6 .product-info-for-sale button,
+.content.sec-6 .sale button {
+    width: 100%;
+    height: 40px;
+    color: #fff;
+    cursor: pointer;
+    background-color: var(--color3);
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+    transition: var(--transition);
+    -webkit-transition: var(--transition);
+    -moz-transition: var(--transition);
+    -ms-transition: var(--transition);
+    -o-transition: var(--transition);
+    border: none;
+    outline: none;
+}
+.content.sec-2 .inputs button:hover,
+.content.sec-4 button:hover,
+.content.sec-6 .product-info-for-sale button:hover,
+.content.sec-6 .sale button:hover {
+    background-color: var(--color2);
+    letter-spacing: 1px;
+}
+
+
+/* ================= sec-3 =====================*/
+/* ================= sec-3 =====================*/
+/* ================= sec-3 =====================*/
+
+@media (max-width: 540px) {
+    .content.sec-3 {
+        overflow-x: scroll;
+    }
+}
+
+
+/* ================= sec-4 =====================*/
+/* ================= sec-4 =====================*/
+/* ================= sec-4 =====================*/
+
+.content.sec-5 .customers table,
+.content.sec-3  table {
+    width: 100%;
+    border-spacing: 0;
+}
+
+.content.sec-5 .customers table thead tr th,
+.content.sec-3  table thead tr th {
+    background-color: var(--color3);
+    padding: 15px;
+    margin-left: 5px;
+}
+.content.sec-5 .customers table tbody tr td,
+.content.sec-3  table tbody tr td {
+    background-color: var(--color4);
+    padding: 15px;
+    margin-left: 5px;
+    text-align: center;
+    border-spacing: 10px;
+    border-top: 10px solid var(--color5);
+}
+.content.sec-5 .customers table tbody tr td:last-of-type:hover p {
+    cursor: pointer;
+    color: var(--color1);
+    transform: scale(1.2);
+    -webkit-transform: scale(1.2);
+    -moz-transform: scale(1.2);
+    -ms-transform: scale(1.2);
+    -o-transform: scale(1.2);
+}
+
+td, th {
+    white-space: nowrap !important;
+}
+/* ================= sec-6 =================*/
+/* ================= sec-6 =================*/
+/* ================= sec-6 =================*/
+
+.content.sec-6 .product-info-for-sale input {
+    width: calc((100% - 10px) / 3);
+    height: 50px;
+    padding: 5px 10px;
+    margin-bottom: 5px;
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+    outline: none;
+    border: none;
+    margin-bottom: 20px;
+}
+.content.sec-6 .product-info-for-sale button {
+    margin-bottom: 20px;
+}
+
+
+
+
+
+
+
+
+
+
+.content.hidden {
+    display: none !important;
+} 
+.content.active {
+    display: flex !important;
+    flex-direction: column;
+} 

@@ -9,19 +9,176 @@
     <!-- css font awesome file-->
     <link rel="stylesheet" href="../css/all.min.css">
     <!-- js main file -->
-    <script defer src="../js/main.js"></script>
+    <script  defer src="../js/main.js"></script>
     <!-- css normalization file -->
     <link rel="stylesheet" href="../css/normalization.css">
     <!-- google font -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Scheherazade+New:wght@400;500;600;700&display=swap"
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;700&family=Scheherazade+New:wght@400;500;600;700&display=swap"
         rel="stylesheet">
     <title>Store Management</title>
 </head>
 
 <body>
-
+    <div class="container">
+        <header>
+            <div class="content">
+                <div class="row">
+                    <div class="menu-icon">
+                        <i class="fa-solid fa-bars"></i>
+                    </div>
+                    <div class="component">
+                        <input type="text" id="head-search" placeholder="بحث">
+                        <div>
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <section>
+            <div class="content">
+                <div class="row">
+                    <div class="right-column">
+                        <div class="content">
+                            <div id="div-1" data-title="products" class="active" onclick="showTargetLeftColumn(this)">
+                                <p>المنتجات</p>
+                            </div>
+                            <div id="div-2" data-title="add-product" onclick="showTargetLeftColumn(this)">
+                                <p>اضافه منتج</p>
+                            </div>
+                            <div id="div-3" data-title="storage" onclick="showTargetLeftColumn(this)">
+                                <p>المخزن</p>
+                            </div>
+                            <div  id="div-4" data-title="create-invoice" onclick="showTargetLeftColumn(this)">
+                                <p>انشاء فاتوره</p>
+                            </div>
+                            <div  id="div-5" data-title="customers" onclick="showTargetLeftColumn(this)">
+                                <p>العملاء</p>
+                            </div>
+                            <div id="div-6" data-title="sale" onclick="showTargetLeftColumn(this)">
+                                <p>البيع</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="left-column">
+                        <div class="content sec-1 active" data-title="products">
+                            <div class="div">1</div>
+                            <div class="div">2</div>
+                            <div class="div">3</div>
+                            <div class="div">4</div>
+                        </div>
+                        <div class="content sec-2 hidden" data-title="add-product">
+                            <div class="inputs">
+                                <input type="text" placeholder="اسم المنتج" id="title">
+                                <input type="text" placeholder="النوع" id="category">
+                                <input type="number" placeholder="العدد" id="count" onkeyup="getTotal()">
+                                <div class="info-product">
+                                    <input type="number" placeholder="الطول" id="height"  onkeyup="getTotal()">
+                                    <input type="number" placeholder="العرض" id="width" onkeyup="getTotal()">
+                                    <input type="text" placeholder="المساحه" id="total-hw">
+                                </div>
+                                <input type="text" placeholder="اجمالي الكميه" id="total-hw-count">
+                                <div class="price">
+                                    <input type="number" placeholder="سعر المتر " id="price" onkeyup="getTotal()">
+                                    <input type="number" placeholder="اجمالي السعر " id="total-price">
+                                </div>
+                                <button id="create" onclick="createProduct()">Create</button>
+                            </div>
+                        </div>
+                        <div class="content sec-3 hidden" data-title="storage">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>رقم</th>
+                                        <th>اسم المنتج</th>
+                                        <th>نوع المنج</th>
+                                        <th>الطول</th>
+                                        <th>العرض</th>
+                                        <th>العدد</th>
+                                        <th>اجمالي الكميه</th>
+                                        <th>سعر القطعه</th>
+                                        <th>اجمالي السعر</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="store">
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="content sec-4 hidden" data-title="create-invoice">
+                            <div class="customer-info">
+                                <input type="text" placeholder="اسم العميل" id="customer-name">
+                                <input type="text" placeholder="المنتج" id="product-name">
+                                <input type="text" placeholder="الكميه" id="product-quantity">
+                                <input type="number" placeholder="العدد" id="product-count">
+                                <input type="text" placeholder="سعر المتر \ سعرالقطعه" id="unit-price">
+                                <input type="text" placeholder="اجمالي السعر" id="product-total-price">
+                                <input type="text" placeholder=" المبلغ المدفوع" id="amount-paid">
+                                <input type="text" placeholder=" المبلغ المتبقي" id="remaining-amount">
+                            </div>
+                            <button>Save</button>
+                        </div>
+                        <div class="content sec-5 hidden" data-title="customers">
+                            <div class="customers">
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th>اسم العميل</th>
+                                            <th>رقم العميل</th>
+                                            <th>المبلغ المدفوع</th>
+                                            <th>المبلغ المتبقي</th>
+                                            <th><p>تفاصيل</p></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>العميل الاول</td>
+                                            <td>0118237883</td>
+                                            <td>300 <span>جنيه</span></td>
+                                            <td> 1000 <span>جنيه</span></td>
+                                            <td><p>تفاصيل</p></td>
+                                        </tr>
+                                        <tr>
+                                            <td>العميل الاول</td>
+                                            <td>0118237883</td>
+                                            <td>300 <span>جنيه</span></td>
+                                            <td> 1000 <span>جنيه</span></td>
+                                            <td><p>تفاصيل</p></td>
+                                        </tr>
+                                        <tr>
+                                            <td>العميل الاول</td>
+                                            <td>0118237883</td>
+                                            <td>300 <span>جنيه</span></td>
+                                            <td> 1000 <span>جنيه</span></td>
+                                            <td><p>تفاصيل</p></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="content sec-6 hidden" data-title="sale">
+                            <div class="product-info-for-sale">
+                                <input type="text" placeholder="اسم المنتج" id="product-name-sale">
+                                <input type="text" placeholder=" عدد القطع المتاح" id="number-pieces-available">
+                                <input type="text" placeholder="سعر القطعه \ المتر" id="product-price-sale">
+                                <button>Search</button>
+                            </div>
+                            <div class="sale">
+                                <input type="text" placeholder="اسم المنتج" id="pNS">
+                                <input type="text" placeholder=" الطول" id="pHS">
+                                <input type="text" placeholder=" العرض" id="pWS">
+                                <input type="text" placeholder="العدد" id="pCS">
+                                <input type="text" placeholder="اجمالي السعر" id="pBS">
+                                <button>تم البيع</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
 </body>
 
 </html>
