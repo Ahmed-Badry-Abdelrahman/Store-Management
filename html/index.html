@@ -55,6 +55,9 @@
                             <div  id="div-4" data-title="create-invoice" onclick="showTargetLeftColumn(this)">
                                 <p>انشاء فاتوره</p>
                             </div>
+                            <div id="div-7" data-title="display-invoice" onclick="showTargetLeftColumn(this)">
+                                <p>عرض الفواتير</p>
+                            </div>
                             <div  id="div-5" data-title="customers" onclick="showTargetLeftColumn(this)">
                                 <p>العملاء</p>
                             </div>
@@ -65,10 +68,7 @@
                     </div>
                     <div class="left-column">
                         <div class="content sec-1 active" data-title="products">
-                            <div class="div">1</div>
-                            <div class="div">2</div>
-                            <div class="div">3</div>
-                            <div class="div">4</div>
+                            
                         </div>
                         <div class="content sec-2 hidden" data-title="add-product">
                             <div class="inputs">
@@ -110,15 +110,22 @@
                         <div class="content sec-4 hidden" data-title="create-invoice">
                             <div class="customer-info">
                                 <input type="text" placeholder="اسم العميل" id="customer-name">
+                                <input type="text" placeholder="رقم العميل" id="customer-number">
                                 <input type="text" placeholder="المنتج" id="product-name">
-                                <input type="text" placeholder="الكميه" id="product-quantity">
-                                <input type="number" placeholder="العدد" id="product-count">
-                                <input type="text" placeholder="سعر المتر \ سعرالقطعه" id="unit-price">
+                                <input type="number" placeholder="العدد" id="product-count" onkeyup="getTotal()">
+                                <div class="invoice-product-info">
+                                    <input type="number" placeholder="الطول" id="product-height" onkeyup="getTotal()">
+                                    <input type="number" placeholder="العرض" id="product-width" onkeyup="getTotal()">
+                                    <input type="number" placeholder="اجمالي الكميه" id="inv-product-quantity">
+                                    
+                                </div>
+                                <input type="text" placeholder="سعر المتر " id="unit-price" onkeyup="getTotal()">
                                 <input type="text" placeholder="اجمالي السعر" id="product-total-price">
-                                <input type="text" placeholder=" المبلغ المدفوع" id="amount-paid">
+                                <button id="other-product-to-invoice" onclick="getInvData ()">منتج اخر</button>
+                                <input type="text" placeholder=" المبلغ المدفوع" id="amount-paid" onkeyup="remainingPaid()">
                                 <input type="text" placeholder=" المبلغ المتبقي" id="remaining-amount">
                             </div>
-                            <button>Save</button>
+                            <button id="invoice-save">Save</button>
                         </div>
                         <div class="content sec-5 hidden" data-title="customers">
                             <div class="customers">
@@ -161,7 +168,7 @@
                         <div class="content sec-6 hidden" data-title="sale">
                             <div class="product-info-for-sale">
                                 <input type="text" placeholder="اسم المنتج" id="product-name-sale">
-                                <input type="text" placeholder=" عدد القطع المتاح" id="number-pieces-available">
+                                <input type="text" placeholder=" الكميه المتاحه" id="number-pieces-available">
                                 <input type="text" placeholder="سعر القطعه \ المتر" id="product-price-sale">
                                 <button>Search</button>
                             </div>
@@ -174,6 +181,11 @@
                                 <button>تم البيع</button>
                             </div>
                         </div>
+                        <div class="content sec-7 hidden" data-title="display-invoice">
+                            <div class="container-invoices">
+                                
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -182,3 +194,9 @@
 </body>
 
 </html>
+
+<!-- 
+    [
+        [{},{},{}],[{},{}]
+    ]
+-->

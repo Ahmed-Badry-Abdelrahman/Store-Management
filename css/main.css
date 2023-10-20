@@ -133,9 +133,9 @@ section .content .row .right-column .content {
 }
 @media (max-width: 540px) {
     section .content .row .right-column  {
-        position: absolute;
-        top: 0;
-        right: 4%;
+        position: fixed;
+        top: 67px;
+        right: 5%;
         width: 90%;
         background-color: #eee;
         color: var(--color5);
@@ -204,7 +204,7 @@ section .content .row .left-column .content.sec-1 {
     padding: 10px;
 }
 
-section .content .row .left-column .content.sec-1 div {
+section .content .row .left-column .content.sec-1 .product-content {
     padding: 10px;
     flex-basis: calc((100% - 15px) / 3);
     background-color: var(--color4);
@@ -220,15 +220,34 @@ section .content .row .left-column .content.sec-1 div {
     -o-border-radius: 7px;
 }
 @media (max-width: 540px) {
-    section .content .row .left-column .content.sec-1 div {
+    section .content .row .left-column .content.sec-1 .product-content {
         flex-basis: 100%;
     }
 }
-section .content .row .left-column .content.sec-1 div:hover {
+section .content .row .left-column .content.sec-1 .product-content:hover {
     background-color: var(--color3);
 }
+section .content .row .left-column .content.sec-1 .product-content a{
+    display: flex;
+    font-size: 20px;
+    width: 100%;
+    text-decoration: none;
+    color: inherit;
+}
+section .content .row .left-column .content.sec-1 .product-content .pro-name {
+    flex-basis: 70%;
+}
+section .content .row .left-column .content.sec-1 .product-content .pro-count {
+    flex-basis: 30%;
+    text-align: center;
+}
 
-
+.colored {
+    background-color: red;
+}
+.notColored {
+    background-color: black;
+}
 /* ================= sec-2 =================*/
 /* ================= sec-2 =================*/
 /* ================= sec-2 =================*/
@@ -237,7 +256,8 @@ section .content .row .left-column .content.sec-1 div:hover {
 .content.sec-3,
 .content.sec-4,
 .content.sec-5,
-.content.sec-6  {
+.content.sec-6,
+.content.sec-7 {
     padding: 20px;
 }
 .content.sec-2 .inputs input,
@@ -266,7 +286,7 @@ section .content .row .left-column .content.sec-1 div:hover {
     background-color: #a1e1ff;
 }
 
-.content.sec-2 .inputs .info-product input {
+.content.sec-2 .inputs .info-product input{
     width: calc((100% - 10px) / 3);
 }
 #total-hw,
@@ -275,7 +295,8 @@ section .content .row .left-column .content.sec-1 div:hover {
 #number-pieces-available,
 #product-price-sale,
 #pBS,
-#total-hw-count {
+#total-hw-count,
+#inv-product-quantity {
     pointer-events: none;
     background-color: var(--color6);
 }
@@ -285,7 +306,8 @@ section .content .row .left-column .content.sec-1 div:hover {
 #number-pieces-available::placeholder,
 #product-price-sale::placeholder,
 #pBS::placeholder,
-#total-hw-count::placeholder {
+#total-hw-count::placeholder,
+#inv-product-quantity::placeholder {
     color: #fff;
 }
 
@@ -330,7 +352,13 @@ section .content .row .left-column .content.sec-1 div:hover {
     letter-spacing: 1px;
 }
 
+.content.sec-4 .invoice-product-info input {
+    width: calc((100% - 10px) / 3);
+}
 
+.content.sec-4 .customer-info button {
+    margin: 5px 0 20px 0;
+}
 /* ================= sec-3 =====================*/
 /* ================= sec-3 =====================*/
 /* ================= sec-3 =====================*/
@@ -340,7 +368,9 @@ section .content .row .left-column .content.sec-1 div:hover {
         overflow-x: scroll;
     }
 }
-
+.content.sec-3 {
+    overflow-x: scroll;
+}
 
 /* ================= sec-4 =====================*/
 /* ================= sec-4 =====================*/
@@ -401,6 +431,56 @@ td, th {
 .content.sec-6 .product-info-for-sale button {
     margin-bottom: 20px;
 }
+
+/* ================= sec-7 =================*/
+/* ================= sec-7 =================*/
+/* ================= sec-7 =================*/
+
+.invoice table {
+    width: 100%;
+    margin-bottom: 30px;
+    background-color: var(--color4);
+    text-align: center;
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+}
+.invoice table caption {
+    background-color: var(--color3);
+    padding: 15px;
+    text-align: start;
+    font-size: 20px;
+    font-weight: bold;
+    width: 30%;
+    margin-bottom: 5px;
+    border-radius: 20px;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    -ms-border-radius: 20px;
+    -o-border-radius: 20px;
+}
+.invoice table th {
+    background-color: var(--color3);
+}
+.invoice table td , .invoice table th {
+    padding: 10px
+}
+
+.container-invoices {
+    overflow-x: scroll;
+}
+
+tfoot td {
+    background-color: #b12f15;
+}
+
+
+
+
+
+
 
 
 
